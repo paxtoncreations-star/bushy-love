@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Bushy ❤️</title>
+  <style>
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .card{
+      width:min(520px, 100%);
+      background: rgba(255,255,255,.85);
+      border-radius:22px;
+      padding:22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.15);
+      backdrop-filter: blur(8px);
+    }
+    h1{margin:0 0 6px 0; font-size:28px;}
+    p{margin:6px 0 14px 0; font-size:16px; line-height:1.35;}
+    .btn{
+      width:100%;
+      border:none;
+      padding:14px 16px;
+      border-radius:16px;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      margin:8px 0;
+      background:#111;
+      color:#fff;
+      transition: transform .08s ease;
+    }
+    .btn:active{transform: scale(.98);}
+    .mini{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .pill{
+      flex:1;
+      min-width:140px;
+      border:none;
+      padding:12px;
+      border-radius:999px;
+      cursor:pointer;
+      background:#fff;
+      font-weight:700;
+    }
+    .box{
+      background:#fff;
+      border-radius:18px;
+      padding:14px;
+      margin-top:14px;
+      display:none;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .quote{
+      font-size:16px;
+      font-weight:700;
+    }
+    .footer{
+      margin-top:14px;
+      font-size:12px;
+      opacity:.7;
+      text-align:center;
+    }
+    .heart{
+      display:inline-block;
+      animation: pop 1.2s infinite ease-in-out;
+    }
+    @keyframes pop {
+      0%,100%{transform: scale(1);}
+      50%{transform: scale(1.12);}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hi Bushy <span class="heart">❤️</span></h1>
+    <p>
+      This page is only for you 😌<br/>
+      Every click here = one extra smile for you.
+    </p>
+
+    <button class="btn" onclick="showSurprise('miss')">Open when you miss me 🫣</button>
+    <button class="btn" onclick="showSurprise('quiz')">Bushy’s Love Quiz 😌💘</button>
+    <button class="btn" onclick="showSurprise('last')">One last thing… 🥺❤️</button>
+
+    <div id="box" class="box">
+      <div id="content"></div>
+      <div class="mini" id="actions"></div>
+    </div>
+
+    <div class="footer">Made with love by your favourite person 😌✨</div>
+  </div>
+
+  <script>
+    const box = document.getElementById("box");
+    const content = document.getElementById("content");
+    const actions = document.getElementById("actions");
+
+    function showBox(html, buttons = []) {
+      content.innerHTML = html;
+      actions.innerHTML = "";
+      buttons.forEach(b => {
+        const btn = document.createElement("button");
+        btn.className = "pill";
+        btn.innerText = b.text;
+        btn.onclick = b.onClick;
+        actions.appendChild(btn);
+      });
+      box.style.display = "block";
+      box.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+
+    function showSurprise(type){
+      if(type === "miss"){
+        showBox(`
+          <div class="quote">Bushy… 💗</div>
+          <p>
+            If you’re missing me right now, just remember this:<br/>
+            I’m yours. Calm. Loyal. Always. 😌❤️
+          </p>
+          <p>
+            You’re my peace, my favourite habit, my soft spot 🫣
+          </p>
+        `, [
+          { text: "Send me a selfie 😤📸", onClick: () => openWhatsApp("Bushy ❤️ send me a selfie right now 😤📸") },
+          { text: "I miss you too 😌❤️", onClick: () => openWhatsApp("Bushy… I miss you too 😌❤️") }
+        ]);
+      }
+
+      if(type === "quiz"){
+        showBox(`
+          <div class="quote">Bushy’s Love Quiz 😌💘</div>
+          <p><b>Q1:</b> How much do you like me?</p>
+          <p>
+            A) A little<br/>
+            B) A lot<br/>
+            C) Too much 😭❤️
+          </p>
+          <p><b>Q2:</b> What do you want right now?</p>
+          <p>
+            A) Hug<br/>
+            B) Kiss<br/>
+            C) Both 😌🔥
+          </p>
+        `, [
+          { text: "My answers 😌✅", onClick: () => openWhatsApp("Bushy 😌💘 My answers: Q1=C 😭❤️  Q2=C 😌🔥") },
+          { text: "Your turn 😤", onClick: () => openWhatsApp("Bushy ❤️ Your turn 😤 Tell me your answers 😌💘") }
+        ]);
+      }
+
+      if(type === "last"){
+        showBox(`
+          <div class="quote">One last thing… 🥺❤️</div>
+          <p>
+            I don’t know what the future holds…<br/>
+            But I know one thing:
+          </p>
+          <p><b>I want you in it.</b> 😌💗</p>
+          <p>
+            Now smile, Bushy… because you’re loved. A lot. ❤️
+          </p>
+        `, [
+          { text: "Hug me now 🫶", onClick: () => openWhatsApp("Bushy 🫶 Come here… hug me now 😌❤️") },
+          { text: "I’m blushing 🫣", onClick: () => openWhatsApp("Bushy 🫣 I’m blushing… now say you love me 😤❤️") }
+        ]);
+      }
+    }
+
+    function openWhatsApp(message){
+      const encoded = encodeURIComponent(message);
+      // opens WhatsApp chat composer (works great on mobile)
+      window.location.href = "https://wa.me/?text=" + encoded;
+    }
+  </script>
+</body>
+</html>
