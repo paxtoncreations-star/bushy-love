@@ -4,52 +4,101 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>For Bushy ❤️</title>
+
   <style>
     :root{
-      --bg1:#0b1020;
-      --bg2:#1b1f3a;
-      --card: rgba(255,255,255,.10);
-      --card2: rgba(255,255,255,.16);
+      --bg1:#070A17;
+      --bg2:#151A33;
+      --glass: rgba(255,255,255,.10);
+      --glass2: rgba(255,255,255,.14);
+      --stroke: rgba(255,255,255,.16);
       --txt: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.70);
       --shadow: 0 30px 90px rgba(0,0,0,.45);
+
+      --pink: rgba(255, 173, 200, .55);
+      --lilac: rgba(176, 188, 255, .50);
+      --mint: rgba(160, 255, 212, .25);
     }
-    *{box-sizing:border-box}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--txt);
+      overflow-x:hidden;
       background:
-        radial-gradient(1200px 600px at 15% 10%, rgba(255,209,220,.25), transparent 60%),
-        radial-gradient(900px 500px at 85% 20%, rgba(199,210,254,.22), transparent 55%),
+        radial-gradient(1100px 680px at 15% 10%, var(--pink), transparent 62%),
+        radial-gradient(900px 560px at 85% 18%, var(--lilac), transparent 60%),
+        radial-gradient(800px 500px at 55% 95%, var(--mint), transparent 52%),
         linear-gradient(135deg, var(--bg1), var(--bg2));
-      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:22px;
     }
-    .wrap{ width:min(560px, 100%); }
-    .card{
-      background: linear-gradient(180deg, var(--card), rgba(255,255,255,.06));
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius:26px;
-      padding:22px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+
+    /* floating hearts layer */
+    .hearts{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
       overflow:hidden;
-      position:relative;
+      z-index:1;
+      opacity:.85;
     }
+    .heart{
+      position:absolute;
+      bottom:-40px;
+      font-size:14px;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.25));
+      animation: floatUp linear forwards;
+      opacity:.0;
+    }
+    @keyframes floatUp{
+      0%{ transform: translateY(0) scale(.9); opacity:0; }
+      10%{ opacity:.55; }
+      60%{ opacity:.45; }
+      100%{ transform: translateY(-110vh) scale(1.25); opacity:0; }
+    }
+
+    .wrap{
+      width:min(610px, 100%);
+      position:relative;
+      z-index:2;
+    }
+
+    .card{
+      position:relative;
+      border-radius:28px;
+      padding:20px;
+      background: linear-gradient(180deg, var(--glass), rgba(255,255,255,.06));
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+      transform: translateY(6px);
+      animation: cardIn .55s ease-out forwards;
+    }
+    @keyframes cardIn{
+      from{ opacity:0; transform: translateY(18px) scale(.985); }
+      to{ opacity:1; transform: translateY(0) scale(1); }
+    }
+
     .glow{
       position:absolute;
-      inset:-80px;
-      background: radial-gradient(circle at 20% 20%, rgba(255,209,220,.18), transparent 40%),
-                  radial-gradient(circle at 80% 30%, rgba(199,210,254,.16), transparent 38%),
-                  radial-gradient(circle at 50% 90%, rgba(255,255,255,.10), transparent 45%);
-      filter: blur(18px);
-      opacity:.85;
+      inset:-90px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255,173,200,.22), transparent 42%),
+        radial-gradient(circle at 85% 28%, rgba(176,188,255,.18), transparent 42%),
+        radial-gradient(circle at 50% 90%, rgba(255,255,255,.10), transparent 48%);
+      filter: blur(20px);
+      opacity:.90;
       pointer-events:none;
     }
+
     .top{
       position:relative;
       display:flex;
@@ -57,106 +106,167 @@
       align-items:center;
       margin-bottom:14px;
     }
+
     .badge{
-      width:54px;
-      height:54px;
+      width:56px; height:56px;
       border-radius:18px;
-      background: linear-gradient(135deg, rgba(255,209,220,.35), rgba(199,210,254,.22));
-      border: 1px solid rgba(255,255,255,.18);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:grid;
+      place-items:center;
       font-size:24px;
-      box-shadow: 0 18px 45px rgba(0,0,0,.25);
+      background: linear-gradient(135deg, rgba(255,173,200,.30), rgba(176,188,255,.22));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 18px 50px rgba(0,0,0,.26);
+      position:relative;
+      overflow:hidden;
     }
+    .badge::after{
+      content:"";
+      position:absolute;
+      inset:-30%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
+      transform: translateX(-60%) rotate(20deg);
+      animation: shimmer 2.8s ease-in-out infinite;
+      opacity:.7;
+    }
+    @keyframes shimmer{
+      0%{ transform: translateX(-80%) rotate(20deg); }
+      50%{ transform: translateX(80%) rotate(20deg); }
+      100%{ transform: translateX(180%) rotate(20deg); }
+    }
+
     h1{ margin:0; font-size:22px; letter-spacing:.2px; }
     .sub{ margin-top:2px; color: var(--muted); font-size:14px; line-height:1.35; }
-    .divider{
-      height:1px;
-      background: rgba(255,255,255,.14);
-      margin:16px 0;
-    }
+
     .hero{
       position:relative;
-      padding:14px 14px 16px 14px;
-      border-radius:20px;
-      background: linear-gradient(180deg, var(--card2), rgba(255,255,255,.06));
-      border: 1px solid rgba(255,255,255,.14);
+      border-radius:22px;
+      padding:14px;
+      background: linear-gradient(180deg, var(--glass2), rgba(255,255,255,.06));
+      border: 1px solid var(--stroke);
     }
-    .heroTitle{ font-size:18px; margin:0 0 8px 0; }
+
+    .heroTitle{
+      font-size:18px;
+      margin:0 0 8px 0;
+      letter-spacing:.2px;
+    }
+
     .heroText{
       margin:0;
       color: var(--muted);
       font-size:14px;
       line-height:1.45;
     }
-    .anni{
-      margin-top:12px;
-      padding:12px;
-      border-radius:18px;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.14);
+
+    .pillRow{
       display:flex;
-      align-items:center;
-      justify-content:space-between;
       gap:10px;
       flex-wrap:wrap;
+      margin-top:12px;
+      align-items:center;
+      justify-content:space-between;
     }
-    .anniLeft{ display:flex; flex-direction:column; gap:2px; }
-    .anniLabel{ font-size:12px; color: var(--muted); }
-    .anniDate{ font-size:14px; font-weight:800; letter-spacing:.2px; }
-    .anniRight{
-      font-size:13px;
-      font-weight:800;
-      padding:8px 12px;
+
+    .chip{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
       border-radius:999px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.16);
+      border: 1px solid var(--stroke);
+      font-size:12.5px;
+      font-weight:800;
       white-space:nowrap;
     }
+
+    .chip span{
+      color: var(--muted);
+      font-weight:700;
+      margin-left:6px;
+    }
+
+    .countdown{
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid var(--stroke);
+      font-size:12.5px;
+      font-weight:900;
+      letter-spacing:.15px;
+    }
+
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,.14);
+      margin:16px 0;
+    }
+
     .grid{
       display:grid;
       grid-template-columns:1fr;
       gap:10px;
       margin-top:14px;
     }
+
     .btn{
       width:100%;
       border:none;
+      cursor:pointer;
       padding:14px 16px;
       border-radius:18px;
       font-size:15px;
-      font-weight:750;
-      cursor:pointer;
-      background: rgba(255,255,255,.12);
+      font-weight:850;
       color: var(--txt);
+      background: rgba(255,255,255,.10);
       border: 1px solid rgba(255,255,255,.14);
-      transition: transform .08s ease, background .2s ease;
+      transition: transform .10s ease, background .20s ease, filter .20s ease;
+      position:relative;
+      overflow:hidden;
     }
-    .btn:hover{ background: rgba(255,255,255,.16); }
+    .btn::after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 40%);
+      opacity:.0;
+      transition: opacity .2s ease;
+    }
+    .btn:hover{ background: rgba(255,255,255,.14); }
+    .btn:hover::after{ opacity:.35; }
     .btn:active{ transform: scale(.985); }
+
     .primary{
-      background: linear-gradient(135deg, rgba(255,209,220,.32), rgba(199,210,254,.22));
+      background: linear-gradient(135deg, rgba(255,173,200,.26), rgba(176,188,255,.18));
     }
+
     .box{
       display:none;
       margin-top:14px;
       padding:14px;
-      border-radius:20px;
+      border-radius:22px;
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(0,0,0,.18);
+      animation: popIn .22s ease-out;
     }
-    .quote{ font-size:16px; font-weight:800; margin-bottom:8px; }
-    .p{ margin:8px 0; color: var(--muted); line-height:1.45; font-size:14px; }
+    @keyframes popIn{
+      from{ opacity:0; transform: translateY(10px); }
+      to{ opacity:1; transform: translateY(0px); }
+    }
+
+    .quote{ font-size:16px; font-weight:900; margin-bottom:8px; }
+    .p{ margin:8px 0; color: var(--muted); line-height:1.50; font-size:14px; }
+
     .mini{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       margin-top:12px;
     }
-    .pill{
+
+    .pillBtn{
       flex:1;
-      min-width:160px;
+      min-width:170px;
       border:none;
       padding:12px 14px;
       border-radius:999px;
@@ -164,44 +274,104 @@
       background: rgba(255,255,255,.12);
       color: var(--txt);
       border: 1px solid rgba(255,255,255,.14);
-      font-weight:750;
+      font-weight:900;
+      letter-spacing:.1px;
+      transition: transform .08s ease, background .2s ease;
     }
-    .pill:active{ transform: scale(.99); }
-    .footer{ margin-top:14px; font-size:12px; opacity:.75; text-align:center; }
+    .pillBtn:hover{ background: rgba(255,255,255,.16); }
+    .pillBtn:active{ transform: scale(.99); }
 
+    .footer{
+      margin-top:14px;
+      font-size:12px;
+      opacity:.75;
+      text-align:center;
+      letter-spacing:.2px;
+    }
+
+    /* intro overlay */
     .overlay{
       position:fixed;
       inset:0;
-      background: radial-gradient(900px 500px at 20% 20%, rgba(255,209,220,.20), transparent 55%),
-                  radial-gradient(900px 500px at 80% 30%, rgba(199,210,254,.18), transparent 55%),
-                  linear-gradient(135deg, #070a14, #151a33);
+      z-index:999;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:22px;
-      z-index:999;
+      background:
+        radial-gradient(900px 560px at 18% 18%, rgba(255,173,200,.20), transparent 55%),
+        radial-gradient(900px 560px at 82% 28%, rgba(176,188,255,.18), transparent 55%),
+        linear-gradient(135deg, #050713, #141a33);
+      animation: fadeIn .35s ease-out;
+    }
+    @keyframes fadeIn{
+      from{ opacity:0; }
+      to{ opacity:1; }
     }
     .intro{
-      width:min(520px,100%);
-      border-radius:26px;
+      width:min(560px, 100%);
+      border-radius:28px;
       padding:22px;
       background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.14);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      text-align:left;
+      backdrop-filter: blur(14px);
     }
-    .intro h2{ margin:0 0 6px 0; font-size:20px; }
+    .intro h2{
+      margin:0 0 6px 0;
+      font-size:20px;
+      letter-spacing:.2px;
+    }
     .intro p{
-      margin:6px 0 14px 0;
+      margin:8px 0 14px 0;
       color: var(--muted);
-      line-height:1.45;
       font-size:14px;
+      line-height:1.45;
     }
-    .tiny{ font-size:12px; opacity:.75; margin-top:10px; }
+    .tiny{
+      font-size:12px;
+      opacity:.75;
+      margin-top:10px;
+    }
+
+    .introBtn{
+      width:100%;
+      border:none;
+      border-radius:18px;
+      padding:14px 16px;
+      cursor:pointer;
+      font-weight:950;
+      font-size:15px;
+      color: var(--txt);
+      background: linear-gradient(135deg, rgba(255,173,200,.28), rgba(176,188,255,.18));
+      border: 1px solid rgba(255,255,255,.14);
+      transition: transform .08s ease;
+    }
+    .introBtn:active{ transform: scale(.985); }
+
+    .hintRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .hint{
+      flex:1;
+      min-width:180px;
+      padding:10px 12px;
+      border-radius:18px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--muted);
+      font-size:12.5px;
+      line-height:1.35;
+    }
   </style>
 </head>
+
 <body>
+  <div class="hearts" id="hearts"></div>
+
   <div class="overlay" id="overlay">
     <div class="intro">
       <h2>For Bushy ❤️</h2>
@@ -209,8 +379,14 @@
         This is private.<br/>
         Open it slowly… and come back to daddy 😌💍
       </p>
-      <button class="btn primary" onclick="enter()">Open our page ✨</button>
-      <div class="tiny">Tip: Open it when you’re alone 🫣</div>
+      <button class="introBtn" onclick="enter()">Open our page ✨</button>
+
+      <div class="hintRow">
+        <div class="hint">Tip: open it when you’re alone 🫣</div>
+        <div class="hint">Bonus: try the Night button 🌙</div>
+      </div>
+
+      <div class="tiny">You’re safe here. Always. 🤍</div>
     </div>
   </div>
 
@@ -233,12 +409,9 @@
           And even if we fight, it will never stop me from loving you. ❤️
         </p>
 
-        <div class="anni">
-          <div class="anniLeft">
-            <div class="anniLabel">Our Anniversary</div>
-            <div class="anniDate">29 August</div>
-          </div>
-          <div class="anniRight" id="countdown">Calculating…</div>
+        <div class="pillRow">
+          <div class="chip">💗 Anniversary <span>29 August</span></div>
+          <div class="countdown" id="countdown">Calculating…</div>
         </div>
       </div>
 
@@ -266,8 +439,34 @@
     const box = document.getElementById("box");
     const content = document.getElementById("content");
     const actions = document.getElementById("actions");
+    const heartsLayer = document.getElementById("hearts");
 
-    function enter(){ overlay.style.display = "none"; }
+    /* Floating hearts animation */
+    const heartChars = ["❤️","💗","💖","💞","✨"];
+    function spawnHeart(){
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.textContent = heartChars[Math.floor(Math.random()*heartChars.length)];
+      h.style.left = Math.random() * 100 + "vw";
+      h.style.animationDuration = (6 + Math.random()*6).toFixed(1) + "s";
+      h.style.animationDelay = (Math.random()*0.4).toFixed(2) + "s";
+      h.style.fontSize = (12 + Math.random()*18).toFixed(0) + "px";
+      heartsLayer.appendChild(h);
+      requestAnimationFrame(()=>{ h.style.opacity = "1"; });
+
+      setTimeout(()=>{ h.remove(); }, 14000);
+    }
+
+    // Start hearts slowly (not too much)
+    let heartTimer = setInterval(spawnHeart, 700);
+    setTimeout(()=> clearInterval(heartTimer), 10000); // stop heavy spawn after intro
+    setTimeout(()=> { heartTimer = setInterval(spawnHeart, 1600); }, 11000); // gentle mode
+
+    function enter(){
+      overlay.style.display = "none";
+      // burst hearts when entering
+      for(let i=0;i<10;i++) setTimeout(spawnHeart, i*80);
+    }
 
     function openWhatsApp(message){
       const encoded = encodeURIComponent(message);
@@ -279,7 +478,7 @@
       actions.innerHTML = "";
       buttons.forEach(b => {
         const btn = document.createElement("button");
-        btn.className = "pill";
+        btn.className = "pillBtn";
         btn.innerText = b.text;
         btn.onclick = b.onClick;
         actions.appendChild(btn);
@@ -289,6 +488,9 @@
     }
 
     function showSurprise(type){
+      // tiny heart burst on any click
+      for(let i=0;i<4;i++) setTimeout(spawnHeart, i*70);
+
       if(type === "vows"){
         showBox(`
           <div class="quote">Our Forever Vows 😌💗</div>
@@ -409,4 +611,55 @@
           You’re my world, Bushy… always. 💍
         </p>
       `, [
-        { text: "Hug me daddy 🫣
+        { text: "Hug me daddy 🫣", onClick: () => openWhatsApp("Hug me daddy 🫣❤️") },
+        { text: "I need you daddy 🥺", onClick: () => openWhatsApp("I need you daddy 🥺❤️") }
+      ]);
+    }
+
+    function showSpicy(){
+      showBox(`
+        <div class="quote">Husband Mode 😈🔥</div>
+        <p class="p">
+          Madam… your husband is missing you too much 🫣🔥
+        </p>
+        <p class="p">
+          Come closer… your husband’s girl 😌💍<br/>
+          Daddy wants you right now 😈❤️
+        </p>
+      `, [
+        { text: "Come closer daddy 🫣🔥", onClick: () => openWhatsApp("Come closer daddy 🫣🔥") },
+        { text: "I want you daddy 😌🔥", onClick: () => openWhatsApp("I want you daddy 😌🔥") }
+      ]);
+    }
+
+    /* Anniversary Countdown (29 August) */
+    function updateCountdown(){
+      const el = document.getElementById("countdown");
+      const now = new Date();
+
+      const year = now.getFullYear();
+      let target = new Date(year, 7, 29); // 7 = August (0-based)
+
+      if (now > target) {
+        target = new Date(year + 1, 7, 29);
+      }
+
+      const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const end = new Date(target.getFullYear(), target.getMonth(), target.getDate());
+      const diffMs = end - start;
+      const days = Math.round(diffMs / (1000 * 60 * 60 * 24));
+
+      if (days === 0){
+        el.textContent = "Happy Anniversary 🎉❤️";
+      } else if (days === 1){
+        el.textContent = "1 day to go 😌💍";
+      } else {
+        el.textContent = `${days} days left 😌💍`;
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60 * 1000);
+  </script>
+</body>
+</html>
