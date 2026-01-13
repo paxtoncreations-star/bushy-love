@@ -14,7 +14,6 @@
       --muted: rgba(255,255,255,.70);
       --shadow: 0 30px 90px rgba(0,0,0,.45);
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -30,9 +29,7 @@
       justify-content:center;
       padding:22px;
     }
-
     .wrap{ width:min(560px, 100%); }
-
     .card{
       background: linear-gradient(180deg, var(--card), rgba(255,255,255,.06));
       border: 1px solid rgba(255,255,255,.14);
@@ -43,7 +40,6 @@
       overflow:hidden;
       position:relative;
     }
-
     .glow{
       position:absolute;
       inset:-80px;
@@ -54,7 +50,6 @@
       opacity:.85;
       pointer-events:none;
     }
-
     .top{
       position:relative;
       display:flex;
@@ -62,7 +57,6 @@
       align-items:center;
       margin-bottom:14px;
     }
-
     .badge{
       width:54px;
       height:54px;
@@ -75,16 +69,13 @@
       font-size:24px;
       box-shadow: 0 18px 45px rgba(0,0,0,.25);
     }
-
     h1{ margin:0; font-size:22px; letter-spacing:.2px; }
     .sub{ margin-top:2px; color: var(--muted); font-size:14px; line-height:1.35; }
-
     .divider{
       height:1px;
       background: rgba(255,255,255,.14);
       margin:16px 0;
     }
-
     .hero{
       position:relative;
       padding:14px 14px 16px 14px;
@@ -99,8 +90,6 @@
       font-size:14px;
       line-height:1.45;
     }
-
-    /* Anniversary box */
     .anni{
       margin-top:12px;
       padding:12px;
@@ -113,20 +102,9 @@
       gap:10px;
       flex-wrap:wrap;
     }
-    .anniLeft{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-    }
-    .anniLabel{
-      font-size:12px;
-      color: var(--muted);
-    }
-    .anniDate{
-      font-size:14px;
-      font-weight:800;
-      letter-spacing:.2px;
-    }
+    .anniLeft{ display:flex; flex-direction:column; gap:2px; }
+    .anniLabel{ font-size:12px; color: var(--muted); }
+    .anniDate{ font-size:14px; font-weight:800; letter-spacing:.2px; }
     .anniRight{
       font-size:13px;
       font-weight:800;
@@ -136,14 +114,12 @@
       border: 1px solid rgba(255,255,255,.14);
       white-space:nowrap;
     }
-
     .grid{
       display:grid;
       grid-template-columns:1fr;
       gap:10px;
       margin-top:14px;
     }
-
     .btn{
       width:100%;
       border:none;
@@ -159,11 +135,9 @@
     }
     .btn:hover{ background: rgba(255,255,255,.16); }
     .btn:active{ transform: scale(.985); }
-
     .primary{
       background: linear-gradient(135deg, rgba(255,209,220,.32), rgba(199,210,254,.22));
     }
-
     .box{
       display:none;
       margin-top:14px;
@@ -172,17 +146,14 @@
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(0,0,0,.18);
     }
-
     .quote{ font-size:16px; font-weight:800; margin-bottom:8px; }
     .p{ margin:8px 0; color: var(--muted); line-height:1.45; font-size:14px; }
-
     .mini{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       margin-top:12px;
     }
-
     .pill{
       flex:1;
       min-width:160px;
@@ -196,10 +167,8 @@
       font-weight:750;
     }
     .pill:active{ transform: scale(.99); }
-
     .footer{ margin-top:14px; font-size:12px; opacity:.75; text-align:center; }
 
-    /* Intro screen */
     .overlay{
       position:fixed;
       inset:0;
@@ -235,10 +204,10 @@
 <body>
   <div class="overlay" id="overlay">
     <div class="intro">
-      <h2>For my wife, Bushy ❤️</h2>
+      <h2>For Bushy ❤️</h2>
       <p>
-        This isn’t a random page.<br/>
-        It’s a reminder that you’re my world… forever. 😌💍
+        This is private.<br/>
+        Open it slowly… and come back to daddy 😌💍
       </p>
       <button class="btn primary" onclick="enter()">Open our page ✨</button>
       <div class="tiny">Tip: Open it when you’re alone 🫣</div>
@@ -260,8 +229,8 @@
       <div class="hero">
         <div class="heroTitle">A private space for us ✨</div>
         <p class="heroText">
-          Every click here is a reminder: <b>I chose you</b>. I still do. And I’ll keep choosing you —
-          no matter what mood, what day, what stress… <b>you are my world</b>. ❤️
+          No matter what mood, what day, what stress… <b>you are my world</b>.
+          And even if we fight, it will never stop me from loving you. ❤️
         </p>
 
         <div class="anni">
@@ -279,6 +248,8 @@
         <button class="btn primary" onclick="showSurprise('vows')">Our Forever Vows 😌💗</button>
         <button class="btn" onclick="showSurprise('letter')">Open a secret letter 🥺</button>
         <button class="btn" onclick="showSurprise('mood')">Pick your mood 😈 / 😇</button>
+        <button class="btn" onclick="showSurprise('angry')">Open when you’re angry 😤🐦</button>
+        <button class="btn" onclick="showSurprise('night')">Open at night 🌙</button>
       </div>
 
       <div id="box" class="box">
@@ -322,20 +293,20 @@
         showBox(`
           <div class="quote">Our Forever Vows 😌💗</div>
 
-          <p class="p"><b>1)</b> I’ll respect you in my actions, not just words.</p>
-          <p class="p"><b>2)</b> I’ll stay loyal, consistent, and calm — even in hard days.</p>
-          <p class="p"><b>3)</b> Even if we fight, it won’t stop my love for you. Not even 1% ❤️</p>
-          <p class="p"><b>4)</b> I’ll build our future with you — our home, our happiness, our family. 💍</p>
-          <p class="p"><b>5)</b> I’ll always come back to you — because you are my world. 🌍❤️</p>
+          <p class="p"><b>1)</b> I’ll respect you with my actions, not just words.</p>
+          <p class="p"><b>2)</b> I’ll stay loyal, consistent, and real — always.</p>
+          <p class="p"><b>3)</b> Even if we fight, my love won’t change. Not even 1% ❤️</p>
+          <p class="p"><b>4)</b> I’ll build our future — home, family, peace, everything. 💍</p>
+          <p class="p"><b>5)</b> You’ll always be my world. Forever. 🌍❤️</p>
 
           <p class="p">
             And yes… you’ll always be my <b>Angry Bird</b> 😭💗<br/>
             My <b>Shuttumani</b> 😌✨<br/>
-            My forever.
+            My forever wife.
           </p>
         `, [
-          { text: "This is real 🥺❤️", onClick: () => openWhatsApp("Bushy 🥺❤️ This is real. I’m proud to be your husband.") },
-          { text: "Hug your daddy 🫣", onClick: () => openWhatsApp("Bushy 🫣 Come hug your daddy… right now 😌❤️") }
+          { text: "I love you daddy 😌❤️", onClick: () => openWhatsApp("I love you daddy 😌❤️") },
+          { text: "Come here daddy 🫶", onClick: () => openWhatsApp("Come here daddy 🫶😌") }
         ]);
       }
 
@@ -356,21 +327,16 @@
           <p class="p">
             And listen… even if we fight,<br/>
             even if we get irritated… it will <b>never</b> stop me from loving you.
-            Because my love for you is not mood-based… it’s permanent. 💍❤️
-          </p>
-
-          <p class="p">
-            I’m serious about us.<br/>
-            Our future… our home… our peace… our family.
+            My love for you is not mood-based… it’s permanent. 💍❤️
           </p>
 
           <p class="p">
             One day when we have our kids — <b>Pudhina</b> and <b>Gotham</b> 😭💗<br/>
-            I want them to see the way daddy looks at you… and understand what real love is.
+            I want them to see how much their daddy loves their mom… and learn what real love is.
           </p>
         `, [
-          { text: "Daddy loves you 😌❤️", onClick: () => openWhatsApp("Bushy 😌❤️ Daddy loves you. Always. You're my world.") },
-          { text: "Come here, husband's girl 🫶", onClick: () => openWhatsApp("Husband’s girl 🫶 Come here… I want you close 😌💍") }
+          { text: "I miss you daddy 🥺", onClick: () => openWhatsApp("I miss you daddy 🥺❤️") },
+          { text: "I'm your husband's girl 😌💍", onClick: () => openWhatsApp("I'm your husband's girl 😌💍❤️") }
         ]);
       }
 
@@ -378,11 +344,56 @@
         showBox(`
           <div class="quote">Pick your mood ✨</div>
           <p class="p">
-            Choose what you want right now, Mrs. Bushy 😌💍
+            Choose what you want right now, Bushy 😌💍
           </p>
         `, [
           { text: "😇 Soft romance", onClick: () => showSoft() },
           { text: "😈 Husband mode", onClick: () => showSpicy() }
+        ]);
+      }
+
+      if(type === "angry"){
+        showBox(`
+          <div class="quote">For my Angry Bird 😤🐦</div>
+          <p class="p">
+            Okay okay… my Angry Bird 😭❤️<br/>
+            Be angry… but don’t go far from me 😌
+          </p>
+
+          <p class="p">
+            Even if we fight, you’re still my world 🌍❤️<br/>
+            And daddy is still yours 💍
+          </p>
+
+          <p class="p">
+            Now breathe… drink water… and come here 🫶
+          </p>
+        `, [
+          { text: "Sorry daddy 😭", onClick: () => openWhatsApp("Sorry daddy 😭❤️") },
+          { text: "Come hug me daddy 🫶", onClick: () => openWhatsApp("Come hug me daddy 🫶🥺") }
+        ]);
+      }
+
+      if(type === "night"){
+        showBox(`
+          <div class="quote">Night Mode 🌙🫣</div>
+
+          <p class="p">
+            It’s night… and everything becomes quiet 😌<br/>
+            That’s when I miss you the most.
+          </p>
+
+          <p class="p">
+            Come closer, husband’s girl 😌💍<br/>
+            Daddy wants you near… no talking… just you and me 🫣🔥
+          </p>
+
+          <p class="p">
+            Good night kiss is mandatory ✅❤️
+          </p>
+        `, [
+          { text: "Come here daddy 🌙🫣", onClick: () => openWhatsApp("Come here daddy 🌙🫣❤️") },
+          { text: "Good night daddy 😌❤️", onClick: () => openWhatsApp("Good night daddy 😌❤️") }
         ]);
       }
     }
@@ -391,70 +402,11 @@
       showBox(`
         <div class="quote">Soft Romance 😇💗</div>
         <p class="p">
-          Come here… sit next to me.<br/>
-          Let me hold you for a minute and reset your whole day. 😌
+          Come here… let daddy hold you for a minute 😌❤️<br/>
+          I’ll calm my Angry Bird 😭💗
         </p>
         <p class="p">
-          Wife privilege: unlimited hugs + forehead kisses ✅❤️
-        </p>
-        <p class="p">
-          And if you’re angry, my Angry Bird… come 😭❤️<br/>
-          Daddy will fix it. 😌💍
+          You’re my world, Bushy… always. 💍
         </p>
       `, [
-        { text: "Forehead kiss 😌", onClick: () => openWhatsApp("Bushy 😌 Come here… I’m giving you a forehead kiss now ❤️") },
-        { text: "Date night 🍽️", onClick: () => openWhatsApp("Bushy 🍽️ Date night soon. I’m taking you out 😌💗") }
-      ]);
-    }
-
-    function showSpicy(){
-      showBox(`
-        <div class="quote">Husband Mode 😈🔥</div>
-        <p class="p">
-          Madam… your husband is missing you a little too much right now 🫣
-        </p>
-        <p class="p">
-          Come closer… my husband’s girl 😌💍<br/>
-          Daddy wants his favourite person right now 😈🔥
-        </p>
-        <p class="p">
-          Don’t worry… even if you’re my Angry Bird today 😭❤️<br/>
-          You’re still my world. Always.
-        </p>
-      `, [
-        { text: "Come closer 🫣", onClick: () => openWhatsApp("Bushy 🫣 Come closer… daddy wants you 😌🔥") },
-        { text: "You're my world 😤❤️", onClick: () => openWhatsApp("Bushy 😤❤️ You're my world. Mine. Always.") }
-      ]);
-    }
-
-    // Anniversary Countdown (29 August)
-    function updateCountdown(){
-      const el = document.getElementById("countdown");
-      const now = new Date();
-
-      const year = now.getFullYear();
-      let target = new Date(year, 7, 29); // 7 = August (0-based)
-
-      if (now > target) {
-        target = new Date(year + 1, 7, 29);
-      }
-
-      const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      const end = new Date(target.getFullYear(), target.getMonth(), target.getDate());
-      const diffMs = end - start;
-      const days = Math.round(diffMs / (1000 * 60 * 60 * 24));
-
-      if (days === 0){
-        el.textContent = "Happy Anniversary 🎉❤️";
-      } else if (days === 1){
-        el.textContent = "1 day to go 😌💍";
-      } else {
-        el.textContent = `${days} days left 😌💍`;
-      }
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 60 * 1000);
-  </script>
-</body>
-</html>
+        { text: "Hug me daddy 🫣
