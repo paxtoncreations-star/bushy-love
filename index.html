@@ -16,7 +16,7 @@ linear-gradient(135deg,var(--bg1),var(--bg2));display:flex;align-items:center;ju
 @keyframes up{0%{transform:translateY(0) scale(.9);opacity:0}12%{opacity:.55}70%{opacity:.45}100%{transform:translateY(-110vh) scale(1.25);opacity:0}}
 .wrap{width:min(610px,100%);position:relative;z-index:2}
 .card{position:relative;border-radius:28px;padding:20px;background:linear-gradient(180deg,var(--g),rgba(255,255,255,.06));
-border:1px solid var(--s);box-shadow:var(--sh);backdrop-filter:blur(12px);overflow:hidden;animation:in .55s ease-out}
+border:1px solid var(--s);box-shadow:var(--sh);backdrop-filter:blur(12px);overflow:hidden;animation:in .45s ease-out}
 @keyframes in{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
 .glow{position:absolute;inset:-90px;background:radial-gradient(circle at 18% 18%,rgba(255,173,200,.22),transparent 42%),
 radial-gradient(circle at 85% 28%,rgba(176,188,255,.18),transparent 42%),radial-gradient(circle at 50% 90%,rgba(255,255,255,.10),transparent 48%);
@@ -37,7 +37,7 @@ h1{margin:0;font-size:22px}.sub{margin-top:2px;color:var(--m);font-size:14px}
 background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);transition:transform .10s ease,background .20s ease}
 .btn:hover{background:rgba(255,255,255,.14)}.btn:active{transform:scale(.985)}
 .primary{background:linear-gradient(135deg,rgba(255,173,200,.26),rgba(176,188,255,.18))}
-.box{display:none;margin-top:14px;padding:14px;border-radius:22px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18);animation:pop .22s ease-out}
+.box{display:none;margin-top:14px;padding:14px;border-radius:22px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18);animation:pop .18s ease-out}
 @keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .quote{font-size:16px;font-weight:950;margin-bottom:8px}.p{margin:8px 0;color:var(--m);line-height:1.5;font-size:14px}
 .mini{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
@@ -61,7 +61,7 @@ background:linear-gradient(135deg,rgba(255,173,200,.28),rgba(176,188,255,.18));b
 <div id="overlay">
   <div class="intro">
     <h2>For Bushy ❤️</h2>
-    <p>This is private.<br/>Open it slowly… and come back to daddy 😌💍</p>
+    <p>This is private.<br/>Open it slowly… and don’t skip anything 😌💍</p>
     <button class="introBtn" id="openBtn">Open our page ✨</button>
     <div class="tiny">Tip: open it in a quiet moment 🫣</div>
   </div>
@@ -75,7 +75,7 @@ background:linear-gradient(135deg,rgba(255,173,200,.28),rgba(176,188,255,.18));b
       <div class="badge">💍</div>
       <div>
         <h1>Bushy ❤️</h1>
-        <div class="sub">For my husband’s girl — always 😌💍</div>
+        <div class="sub">For my wife — my Butta, Laddu & Pattu 😌💗</div>
       </div>
     </div>
 
@@ -110,110 +110,75 @@ background:linear-gradient(135deg,rgba(255,173,200,.28),rgba(176,188,255,.18));b
 
 <script>
 (() => {
-  const $ = (id)=>document.getElementById(id);
-  const hearts = $("hearts"), overlay = $("overlay"), box = $("box"), content = $("content"), actions = $("actions"), countdown = $("countdown");
-  const heartsArr = ["❤️","💗","💖","💞","✨"];
+  const $=id=>document.getElementById(id);
+  const hearts=$("hearts"), overlay=$("overlay"), box=$("box"), content=$("content"), actions=$("actions"), countdown=$("countdown");
+  const chars=["❤️","💗","💖","💞","✨"];
+  const spawn=()=>{const h=document.createElement("div");h.className="heart";h.textContent=chars[Math.floor(Math.random()*chars.length)];
+    h.style.left=(Math.random()*100)+"vw";h.style.animationDuration=(6+Math.random()*6).toFixed(1)+"s";h.style.fontSize=(12+Math.random()*18).toFixed(0)+"px";
+    hearts.appendChild(h);requestAnimationFrame(()=>h.style.opacity="1");setTimeout(()=>h.remove(),14000);};
+  const burst=(n=5)=>{for(let i=0;i<n;i++)setTimeout(spawn,i*70);};
+  setInterval(spawn,1700);for(let i=0;i<8;i++)setTimeout(spawn,i*120);
+  const wa=msg=>location.href="https://wa.me/?text="+encodeURIComponent(msg);
+  const show=(html,btns=[])=>{content.innerHTML=html;actions.innerHTML="";btns.forEach(b=>{const x=document.createElement("button");
+    x.className="pill";x.textContent=b.t;x.onclick=b.c;actions.appendChild(x);});box.style.display="block";box.scrollIntoView({behavior:"smooth",block:"center"});};
 
-  const spawn = () => {
-    const h = document.createElement("div");
-    h.className="heart";
-    h.textContent = heartsArr[Math.floor(Math.random()*heartsArr.length)];
-    h.style.left = (Math.random()*100)+"vw";
-    h.style.animationDuration = (6+Math.random()*6).toFixed(1)+"s";
-    h.style.fontSize = (12+Math.random()*18).toFixed(0)+"px";
-    hearts.appendChild(h);
-    requestAnimationFrame(()=>h.style.opacity="1");
-    setTimeout(()=>h.remove(),14000);
-  };
-  const burst = (n=5)=>{ for(let i=0;i<n;i++) setTimeout(spawn,i*70); };
-  setInterval(spawn,1600); for(let i=0;i<8;i++) setTimeout(spawn,i*120);
+  const vows=()=>{burst();show(`<div class="quote">Our Forever Vows 😌💗</div>
+    <p class="p"><b>1)</b> I’ll respect you with actions, not just words.</p>
+    <p class="p"><b>2)</b> I’ll stay loyal, consistent, and real — always.</p>
+    <p class="p"><b>3)</b> Even if we fight, my love won’t change. Not even 1% ❤️</p>
+    <p class="p"><b>4)</b> I’ll build our future — home, peace, family, everything. 💍</p>
+    <p class="p"><b>5)</b> You’ll always be my world. Forever. 🌍❤️</p>
+    <p class="p">My <b>Angry Bird</b> 😭💗 + my <b>Shuttumani</b> 😌✨ + my <b>Butta/Laddu/Pattu</b> 😌💗</p>`,
+    [{t:"I love you 🥺❤️",c:()=>wa("I love you 🥺❤️")},
+     {t:"Come here 🫶",c:()=>wa("Come here 🫶😌")}]);};
 
-  const wa = (msg)=> location.href="https://wa.me/?text="+encodeURIComponent(msg);
+  const letter=()=>{burst();show(`<div class="quote">Secret Letter 🥺❤️</div>
+    <p class="p">Bushy… you’re my world. My home. My favourite person 😌💗</p>
+    <p class="p">Sometimes you’re my <b>Angry Bird</b> 😭❤️… and sometimes my <b>Shuttumani</b> 😌✨</p>
+    <p class="p">Butta, Laddu, Pattu… whatever the mood — you’re still <b>my wife</b>. 💍❤️</p>
+    <p class="p">Even if we fight, love will win. Always.</p>
+    <p class="p">One day our kids — <b>Pudhina</b> & <b>Gotham</b> 😭💗 will know how strong our love is.</p>`,
+    [{t:"I miss you 🥺",c:()=>wa("I miss you 🥺❤️")},
+     {t:"Okay come 😌💍",c:()=>wa("Okay come 😌💍❤️")}]);};
 
-  const show = (html, btns=[]) => {
-    content.innerHTML = html; actions.innerHTML="";
-    btns.forEach(b=>{
-      const x=document.createElement("button");
-      x.className="pill"; x.textContent=b.t; x.onclick=b.c;
-      actions.appendChild(x);
-    });
-    box.style.display="block";
-    box.scrollIntoView({behavior:"smooth", block:"center"});
-  };
+  const soft=()=>{burst();show(`<div class="quote">Soft Romance 😇💗</div>
+    <p class="p">Come here… let me hold you for a minute 😌❤️</p>
+    <p class="p">My Butta… I’ll calm you down. My world. 💍</p>`,
+    [{t:"Hug me 🫣",c:()=>wa("Hug me 🫣❤️")},
+     {t:"Okay sorry 😭",c:()=>wa("Okay sorry 😭❤️")}]);};
 
-  const vows = () => { burst();
-    show(`<div class="quote">Our Forever Vows 😌💗</div>
-      <p class="p"><b>1)</b> I’ll respect you with my actions, not just words.</p>
-      <p class="p"><b>2)</b> I’ll stay loyal, consistent, and real — always.</p>
-      <p class="p"><b>3)</b> Even if we fight, my love won’t change. Not even 1% ❤️</p>
-      <p class="p"><b>4)</b> I’ll build our future — home, family, peace, everything. 💍</p>
-      <p class="p"><b>5)</b> You’ll always be my world. Forever. 🌍❤️</p>
-      <p class="p">And yes… you’ll always be my <b>Angry Bird</b> 😭💗<br/>My <b>Shuttumani</b> 😌✨</p>`,
-    [{t:"I love you daddy 😌❤️", c:()=>wa("I love you daddy 😌❤️")},
-     {t:"Come here daddy 🫶", c:()=>wa("Come here daddy 🫶😌")}]);
-  };
+  const spicy=()=>{burst();show(`<div class="quote">Husband Mode 😈🔥</div>
+    <p class="p">It’s just us now… no stress, no noise 😌🔥</p>
+    <p class="p">Come close… I’m not letting you go tonight 🫣❤️</p>
+    <p class="p"><b>(okay… daddy is missing you a little 😈)</b></p>`,
+    [{t:"Come closer 🫣🔥",c:()=>wa("Come closer 🫣🔥")},
+     {t:"I miss you 😌❤️",c:()=>wa("I miss you 😌❤️")}]);};
 
-  const letter = () => { burst();
-    show(`<div class="quote">Secret Letter 🥺❤️</div>
-      <p class="p">Bushy… you’re not just my wife.<br/>You’re my world. My home. My favourite person. 😌💗</p>
-      <p class="p">You’re my <b>Angry Bird</b> when you get mad 😭❤️<br/>You’re my <b>Shuttumani</b> when you act cute 😌✨</p>
-      <p class="p">Even if we fight, it will <b>never</b> stop me from loving you. My love is permanent. 💍❤️</p>
-      <p class="p">One day when we have our kids — <b>Pudhina</b> & <b>Gotham</b> 😭💗<br/>They’ll know how much daddy loves mom.</p>`,
-    [{t:"I miss you daddy 🥺", c:()=>wa("I miss you daddy 🥺❤️")},
-     {t:"I'm your husband's girl 😌💍", c:()=>wa("I'm your husband's girl 😌💍❤️")}]);
-  };
+  const mood=()=>{burst();show(`<div class="quote">Pick your mood ✨</div><p class="p">Choose what you want right now, Bushy 😌💍</p>`,
+    [{t:"😇 Soft romance",c:soft},{t:"😈 Husband mode",c:spicy}]);};
 
-  const soft = () => { burst();
-    show(`<div class="quote">Soft Romance 😇💗</div>
-      <p class="p">Come here… let daddy hold you for a minute 😌❤️<br/>I’ll calm my Angry Bird 😭💗</p>
-      <p class="p">You’re my world, Bushy… always. 💍</p>`,
-    [{t:"Hug me daddy 🫣", c:()=>wa("Hug me daddy 🫣❤️")},
-     {t:"I need you daddy 🥺", c:()=>wa("I need you daddy 🥺❤️")}]);
-  };
+  const angry=()=>{burst();show(`<div class="quote">For my Angry Bird 😤🐦</div>
+    <p class="p">Okay okay… be angry 😭❤️</p>
+    <p class="p">But don’t go far. You’re still my world 🌍❤️</p>
+    <p class="p">Come here… I’ll fix it. (yes, daddy will 😌)</p>`,
+    [{t:"Sorry 😭",c:()=>wa("Sorry 😭❤️")},
+     {t:"Come hug me 🫶",c:()=>wa("Come hug me 🫶🥺")}]);};
 
-  const spicy = () => { burst();
-    show(`<div class="quote">Husband Mode 😈🔥</div>
-      <p class="p">Madam… your husband is missing you too much 🫣🔥</p>
-      <p class="p">Come closer… your husband’s girl 😌💍<br/>Daddy wants you right now 😈❤️</p>`,
-    [{t:"Come closer daddy 🫣🔥", c:()=>wa("Come closer daddy 🫣🔥")},
-     {t:"I want you daddy 😌🔥", c:()=>wa("I want you daddy 😌🔥")}]);
-  };
+  const night=()=>{burst();show(`<div class="quote">Night Mode 🌙🫣</div>
+    <p class="p">It’s night… and you’re on my mind 😌</p>
+    <p class="p">No matter what happened today… come here ❤️</p>
+    <p class="p">Good night kiss is mandatory ✅💍</p>`,
+    [{t:"Good night 😌❤️",c:()=>wa("Good night 😌❤️")},
+     {t:"Come 🫣🌙",c:()=>wa("Come 🫣🌙❤️")}]);};
 
-  const mood = () => { burst();
-    show(`<div class="quote">Pick your mood ✨</div><p class="p">Choose what you want right now, Bushy 😌💍</p>`,
-    [{t:"😇 Soft romance", c:soft},{t:"😈 Husband mode", c:spicy}]);
-  };
-
-  const angry = () => { burst();
-    show(`<div class="quote">For my Angry Bird 😤🐦</div>
-      <p class="p">Okay okay… my Angry Bird 😭❤️<br/>Be angry… but don’t go far from me 😌</p>
-      <p class="p">Even if we fight, you’re still my world 🌍❤️<br/>And daddy is still yours 💍</p>
-      <p class="p">Now breathe… drink water… and come here 🫶</p>`,
-    [{t:"Sorry daddy 😭", c:()=>wa("Sorry daddy 😭❤️")},
-     {t:"Come hug me daddy 🫶", c:()=>wa("Come hug me daddy 🫶🥺")}]);
-  };
-
-  const night = () => { burst();
-    show(`<div class="quote">Night Mode 🌙🫣</div>
-      <p class="p">It’s night… and everything becomes quiet 😌<br/>That’s when I miss you the most.</p>
-      <p class="p">Come closer, husband’s girl 😌💍<br/>Daddy wants you near… no talking… just you and me 🫣🔥</p>
-      <p class="p">Good night kiss is mandatory ✅❤️</p>`,
-    [{t:"Come here daddy 🌙🫣", c:()=>wa("Come here daddy 🌙🫣❤️")},
-     {t:"Good night daddy 😌❤️", c:()=>wa("Good night daddy 😌❤️")}]);
-  };
-
-  $("openBtn").onclick = () => { overlay.style.display="none"; burst(10); };
+  $("openBtn").onclick=()=>{overlay.style.display="none";burst(10);};
   $("bV").onclick=vows; $("bL").onclick=letter; $("bM").onclick=mood; $("bA").onclick=angry; $("bN").onclick=night;
 
-  const upd = () => {
-    const now=new Date(), y=now.getFullYear();
-    let t=new Date(y,7,29); if(now>t) t=new Date(y+1,7,29);
-    const s=new Date(now.getFullYear(),now.getMonth(),now.getDate());
-    const e=new Date(t.getFullYear(),t.getMonth(),t.getDate());
+  const upd=()=>{const now=new Date(),y=now.getFullYear();let t=new Date(y,7,29);if(now>t)t=new Date(y+1,7,29);
+    const s=new Date(now.getFullYear(),now.getMonth(),now.getDate()),e=new Date(t.getFullYear(),t.getMonth(),t.getDate());
     const d=Math.round((e-s)/(1000*60*60*24));
-    countdown.textContent = d===0 ? "Happy Anniversary 🎉❤️" : (d===1 ? "1 day to go 😌💍" : `${d} days left 😌💍`);
-  };
-  upd(); setInterval(upd,60000);
+    countdown.textContent=d===0?"Happy Anniversary 🎉❤️":(d===1?"1 day to go 😌💍":`${d} days left 😌💍`);};
+  upd();setInterval(upd,60000);
 })();
 </script>
 </body>
