@@ -238,7 +238,7 @@
       <h2>For my wife, Bushy ❤️</h2>
       <p>
         This isn’t a random page.<br/>
-        It’s a reminder that you’re my favourite decision… forever. 😌
+        It’s a reminder that you’re my world… forever. 😌💍
       </p>
       <button class="btn primary" onclick="enter()">Open our page ✨</button>
       <div class="tiny">Tip: Open it when you’re alone 🫣</div>
@@ -253,7 +253,7 @@
         <div class="badge">💍</div>
         <div>
           <h1>Bushy ❤️</h1>
-          <div class="sub">From your husband — always yours 😌</div>
+          <div class="sub">From your husband — your husband’s girl forever 😌💍</div>
         </div>
       </div>
 
@@ -261,7 +261,7 @@
         <div class="heroTitle">A private space for us ✨</div>
         <p class="heroText">
           Every click here is a reminder: <b>I chose you</b>. I still do. And I’ll keep choosing you —
-          even on busy days, even on hard days… <b>especially</b> on those days. ❤️
+          no matter what mood, what day, what stress… <b>you are my world</b>. ❤️
         </p>
 
         <div class="anni">
@@ -321,34 +321,56 @@
       if(type === "vows"){
         showBox(`
           <div class="quote">Our Forever Vows 😌💗</div>
-          <p class="p"><b>1)</b> I’ll protect your peace.</p>
-          <p class="p"><b>2)</b> I’ll be loyal in actions, not just words.</p>
-          <p class="p"><b>3)</b> I’ll choose you when it’s easy… and when it’s not.</p>
-          <p class="p"><b>4)</b> I’ll keep dating you forever — even after marriage. 💍</p>
-          <p class="p"><b>5)</b> I’ll always come back to you. Always. ❤️</p>
+
+          <p class="p"><b>1)</b> I’ll respect you in my actions, not just words.</p>
+          <p class="p"><b>2)</b> I’ll stay loyal, consistent, and calm — even in hard days.</p>
+          <p class="p"><b>3)</b> Even if we fight, it won’t stop my love for you. Not even 1% ❤️</p>
+          <p class="p"><b>4)</b> I’ll build our future with you — our home, our happiness, our family. 💍</p>
+          <p class="p"><b>5)</b> I’ll always come back to you — because you are my world. 🌍❤️</p>
+
+          <p class="p">
+            And yes… you’ll always be my <b>Angry Bird</b> 😭💗<br/>
+            My <b>Shuttumani</b> 😌✨<br/>
+            My forever.
+          </p>
         `, [
-          { text: "Reply: I felt this 🥺", onClick: () => openWhatsApp("Bushy 🥺 I meant every word. You’re my forever. ❤️") },
-          { text: "Demand hug 🫶", onClick: () => openWhatsApp("Bushy 🫶 Come here… hug me right now 😌❤️") }
+          { text: "This is real 🥺❤️", onClick: () => openWhatsApp("Bushy 🥺❤️ This is real. I’m proud to be your husband.") },
+          { text: "Hug your daddy 🫣", onClick: () => openWhatsApp("Bushy 🫣 Come hug your daddy… right now 😌❤️") }
         ]);
       }
 
       if(type === "letter"){
         showBox(`
           <div class="quote">Secret Letter 🥺❤️</div>
+
           <p class="p">
             Bushy… you’re not just my wife.<br/>
-            You’re my comfort, my home, my safe place.
+            You’re my world. My home. My favourite person. 😌💗
           </p>
+
           <p class="p">
-            If the world gets heavy, remember this:
-            <b>you’ll never carry it alone.</b>
+            You’re my <b>Angry Bird</b> when you get mad 😭❤️<br/>
+            You’re my <b>Shuttumani</b> when you act cute 😌✨
           </p>
+
           <p class="p">
-            I’m proud of you… and I’m grateful for you — every day. 😌💗
+            And listen… even if we fight,<br/>
+            even if we get irritated… it will <b>never</b> stop me from loving you.
+            Because my love for you is not mood-based… it’s permanent. 💍❤️
+          </p>
+
+          <p class="p">
+            I’m serious about us.<br/>
+            Our future… our home… our peace… our family.
+          </p>
+
+          <p class="p">
+            One day when we have our kids — <b>Pudhina</b> and <b>Gotham</b> 😭💗<br/>
+            I want them to see the way daddy looks at you… and understand what real love is.
           </p>
         `, [
-          { text: "Say it back 😤❤️", onClick: () => openWhatsApp("Bushy 😤❤️ Now you say something romantic back!") },
-          { text: "I love you (deep) 😌", onClick: () => openWhatsApp("Bushy 😌 I love you… deep, calm, real. ❤️") }
+          { text: "Daddy loves you 😌❤️", onClick: () => openWhatsApp("Bushy 😌❤️ Daddy loves you. Always. You're my world.") },
+          { text: "Come here, husband's girl 🫶", onClick: () => openWhatsApp("Husband’s girl 🫶 Come here… I want you close 😌💍") }
         ]);
       }
 
@@ -360,7 +382,7 @@
           </p>
         `, [
           { text: "😇 Soft romance", onClick: () => showSoft() },
-          { text: "😈 Naughty (lite)", onClick: () => showSpicy() }
+          { text: "😈 Husband mode", onClick: () => showSpicy() }
         ]);
       }
     }
@@ -375,24 +397,33 @@
         <p class="p">
           Wife privilege: unlimited hugs + forehead kisses ✅❤️
         </p>
+        <p class="p">
+          And if you’re angry, my Angry Bird… come 😭❤️<br/>
+          Daddy will fix it. 😌💍
+        </p>
       `, [
-        { text: "I want forehead kiss 😌", onClick: () => openWhatsApp("Bushy 😌 Come here… I’m giving you a forehead kiss now ❤️") },
-        { text: "Plan date night 🍽️", onClick: () => openWhatsApp("Bushy 🍽️ Date night soon. I’m taking you out 😌💗") }
+        { text: "Forehead kiss 😌", onClick: () => openWhatsApp("Bushy 😌 Come here… I’m giving you a forehead kiss now ❤️") },
+        { text: "Date night 🍽️", onClick: () => openWhatsApp("Bushy 🍽️ Date night soon. I’m taking you out 😌💗") }
       ]);
     }
 
     function showSpicy(){
       showBox(`
-        <div class="quote">Naughty (Lite) 😈🔥</div>
+        <div class="quote">Husband Mode 😈🔥</div>
         <p class="p">
           Madam… your husband is missing you a little too much right now 🫣
         </p>
         <p class="p">
-          If you’re smiling… you already know what I want 😌🔥
+          Come closer… my husband’s girl 😌💍<br/>
+          Daddy wants his favourite person right now 😈🔥
+        </p>
+        <p class="p">
+          Don’t worry… even if you’re my Angry Bird today 😭❤️<br/>
+          You’re still my world. Always.
         </p>
       `, [
-        { text: "Come closer 🫣", onClick: () => openWhatsApp("Bushy 🫣 Come closer… right now 😌🔥") },
-        { text: "You’re mine 😤❤️", onClick: () => openWhatsApp("Bushy 😤❤️ You’re mine. No sharing.") }
+        { text: "Come closer 🫣", onClick: () => openWhatsApp("Bushy 🫣 Come closer… daddy wants you 😌🔥") },
+        { text: "You're my world 😤❤️", onClick: () => openWhatsApp("Bushy 😤❤️ You're my world. Mine. Always.") }
       ]);
     }
 
@@ -401,16 +432,13 @@
       const el = document.getElementById("countdown");
       const now = new Date();
 
-      // Next anniversary date
       const year = now.getFullYear();
-      let target = new Date(year, 7, 29); // Month is 0-based, 7 = August
+      let target = new Date(year, 7, 29); // 7 = August (0-based)
 
-      // If already passed this year, go to next year
       if (now > target) {
         target = new Date(year + 1, 7, 29);
       }
 
-      // Days difference (midnight-to-midnight)
       const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
       const end = new Date(target.getFullYear(), target.getMonth(), target.getDate());
       const diffMs = end - start;
