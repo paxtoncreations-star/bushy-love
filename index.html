@@ -4,26 +4,43 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>For Bushy ❤️</title>
+
 <style>
 :root{--bg1:#070A17;--bg2:#151A33;--g:rgba(255,255,255,.10);--g2:rgba(255,255,255,.14);--s:rgba(255,255,255,.16);--t:rgba(255,255,255,.92);--m:rgba(255,255,255,.70);--sh:0 30px 90px rgba(0,0,0,.45)}
 *{box-sizing:border-box}html,body{height:100%}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--t);
-background:radial-gradient(1100px 680px at 15% 10%,rgba(255,173,200,.55),transparent 62%),
-radial-gradient(900px 560px at 85% 18%,rgba(176,188,255,.50),transparent 60%),
-linear-gradient(135deg,var(--bg1),var(--bg2));display:flex;align-items:center;justify-content:center;padding:22px;overflow-x:hidden}
+body{
+  margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--t);
+  background:
+    radial-gradient(1100px 680px at 15% 10%,rgba(255,173,200,.55),transparent 62%),
+    radial-gradient(900px 560px at 85% 18%,rgba(176,188,255,.50),transparent 60%),
+    linear-gradient(135deg,var(--bg1),var(--bg2));
+  display:flex;align-items:center;justify-content:center;padding:22px;overflow-x:hidden
+}
 #hearts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;opacity:.9}
 .heart{position:absolute;bottom:-40px;opacity:0;filter:drop-shadow(0 10px 20px rgba(0,0,0,.25));animation:up linear forwards;user-select:none}
 @keyframes up{0%{transform:translateY(0) scale(.9);opacity:0}12%{opacity:.55}70%{opacity:.45}100%{transform:translateY(-110vh) scale(1.25);opacity:0}}
 .wrap{width:min(610px,100%);position:relative;z-index:2}
-.card{position:relative;border-radius:28px;padding:20px;background:linear-gradient(180deg,var(--g),rgba(255,255,255,.06));
-border:1px solid var(--s);box-shadow:var(--sh);backdrop-filter:blur(12px);overflow:hidden;animation:in .45s ease-out}
+.card{
+  position:relative;border-radius:28px;padding:20px;
+  background:linear-gradient(180deg,var(--g),rgba(255,255,255,.06));
+  border:1px solid var(--s);box-shadow:var(--sh);backdrop-filter:blur(12px);
+  overflow:hidden;animation:in .45s ease-out
+}
 @keyframes in{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
-.glow{position:absolute;inset:-90px;background:radial-gradient(circle at 18% 18%,rgba(255,173,200,.22),transparent 42%),
-radial-gradient(circle at 85% 28%,rgba(176,188,255,.18),transparent 42%),radial-gradient(circle at 50% 90%,rgba(255,255,255,.10),transparent 48%);
-filter:blur(20px);opacity:.9;pointer-events:none}
+.glow{
+  position:absolute;inset:-90px;
+  background:
+    radial-gradient(circle at 18% 18%,rgba(255,173,200,.22),transparent 42%),
+    radial-gradient(circle at 85% 28%,rgba(176,188,255,.18),transparent 42%),
+    radial-gradient(circle at 50% 90%,rgba(255,255,255,.10),transparent 48%);
+  filter:blur(20px);opacity:.9;pointer-events:none
+}
 .top{display:flex;gap:14px;align-items:center;margin-bottom:14px;position:relative}
-.badge{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:24px;
-background:linear-gradient(135deg,rgba(255,173,200,.30),rgba(176,188,255,.22));border:1px solid rgba(255,255,255,.18);box-shadow:0 18px 50px rgba(0,0,0,.26)}
+.badge{
+  width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:24px;
+  background:linear-gradient(135deg,rgba(255,173,200,.30),rgba(176,188,255,.22));
+  border:1px solid rgba(255,255,255,.18);box-shadow:0 18px 50px rgba(0,0,0,.26)
+}
 h1{margin:0;font-size:22px}.sub{margin-top:2px;color:var(--m);font-size:14px}
 .hero{border-radius:22px;padding:14px;background:linear-gradient(180deg,var(--g2),rgba(255,255,255,.06));border:1px solid var(--s)}
 .heroT{margin:0 0 8px 0;font-size:18px}.heroP{margin:0;color:var(--m);font-size:14px;line-height:1.45}
@@ -33,28 +50,40 @@ h1{margin:0;font-size:22px}.sub{margin-top:2px;color:var(--m);font-size:14px}
 .count{background:rgba(255,255,255,.10)}
 .div{height:1px;background:rgba(255,255,255,.14);margin:16px 0}
 .grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
-.btn{width:100%;border:none;cursor:pointer;padding:14px 16px;border-radius:18px;font-size:15px;font-weight:900;color:var(--t);
-background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);transition:transform .10s ease,background .20s ease}
+.btn{
+  width:100%;border:none;cursor:pointer;padding:14px 16px;border-radius:18px;font-size:15px;font-weight:900;color:var(--t);
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);
+  transition:transform .10s ease,background .20s ease
+}
 .btn:hover{background:rgba(255,255,255,.14)}.btn:active{transform:scale(.985)}
 .primary{background:linear-gradient(135deg,rgba(255,173,200,.26),rgba(176,188,255,.18))}
 .box{display:none;margin-top:14px;padding:14px;border-radius:22px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18);animation:pop .18s ease-out}
 @keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .quote{font-size:16px;font-weight:950;margin-bottom:8px}.p{margin:8px 0;color:var(--m);line-height:1.5;font-size:14px}
 .mini{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.pill{flex:1;min-width:170px;border:none;padding:12px 14px;border-radius:999px;cursor:pointer;background:rgba(255,255,255,.12);
-color:var(--t);border:1px solid rgba(255,255,255,.14);font-weight:950}
+.pill{
+  flex:1;min-width:170px;border:none;padding:12px 14px;border-radius:999px;cursor:pointer;
+  background:rgba(255,255,255,.12);color:var(--t);border:1px solid rgba(255,255,255,.14);font-weight:950
+}
 .pill:hover{background:rgba(255,255,255,.16)}
 .footer{margin-top:14px;font-size:12px;opacity:.75;text-align:center}
-#overlay{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:22px;
-background:radial-gradient(900px 560px at 18% 18%,rgba(255,173,200,.20),transparent 55%),
-radial-gradient(900px 560px at 82% 28%,rgba(176,188,255,.18),transparent 55%),linear-gradient(135deg,#050713,#141a33)}
+#overlay{
+  position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:22px;
+  background:
+    radial-gradient(900px 560px at 18% 18%,rgba(255,173,200,.20),transparent 55%),
+    radial-gradient(900px 560px at 82% 28%,rgba(176,188,255,.18),transparent 55%),
+    linear-gradient(135deg,#050713,#141a33)
+}
 .intro{width:min(560px,100%);border-radius:28px;padding:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);box-shadow:var(--sh);backdrop-filter:blur(14px)}
 .intro h2{margin:0 0 6px 0;font-size:20px}.intro p{margin:8px 0 14px 0;color:var(--m);font-size:14px;line-height:1.45}
-.introBtn{width:100%;border:none;cursor:pointer;border-radius:18px;padding:14px 16px;font-weight:950;font-size:15px;color:var(--t);
-background:linear-gradient(135deg,rgba(255,173,200,.28),rgba(176,188,255,.18));border:1px solid rgba(255,255,255,.14)}
+.introBtn{
+  width:100%;border:none;cursor:pointer;border-radius:18px;padding:14px 16px;font-weight:950;font-size:15px;color:var(--t);
+  background:linear-gradient(135deg,rgba(255,173,200,.28),rgba(176,188,255,.18));border:1px solid rgba(255,255,255,.14)
+}
 .tiny{font-size:12px;opacity:.75;margin-top:10px}
 </style>
 </head>
+
 <body>
 <div id="hearts"></div>
 
@@ -113,14 +142,20 @@ background:linear-gradient(135deg,rgba(255,173,200,.28),rgba(176,188,255,.18));b
   const $=id=>document.getElementById(id);
   const hearts=$("hearts"), overlay=$("overlay"), box=$("box"), content=$("content"), actions=$("actions"), countdown=$("countdown");
   const chars=["❤️","💗","💖","💞","✨"];
+
   const spawn=()=>{const h=document.createElement("div");h.className="heart";h.textContent=chars[Math.floor(Math.random()*chars.length)];
     h.style.left=(Math.random()*100)+"vw";h.style.animationDuration=(6+Math.random()*6).toFixed(1)+"s";h.style.fontSize=(12+Math.random()*18).toFixed(0)+"px";
     hearts.appendChild(h);requestAnimationFrame(()=>h.style.opacity="1");setTimeout(()=>h.remove(),14000);};
   const burst=(n=5)=>{for(let i=0;i<n;i++)setTimeout(spawn,i*70);};
   setInterval(spawn,1700);for(let i=0;i<8;i++)setTimeout(spawn,i*120);
+
   const wa=msg=>location.href="https://wa.me/?text="+encodeURIComponent(msg);
-  const show=(html,btns=[])=>{content.innerHTML=html;actions.innerHTML="";btns.forEach(b=>{const x=document.createElement("button");
-    x.className="pill";x.textContent=b.t;x.onclick=b.c;actions.appendChild(x);});box.style.display="block";box.scrollIntoView({behavior:"smooth",block:"center"});};
+
+  const show=(html,btns=[])=>{
+    content.innerHTML=html; actions.innerHTML="";
+    btns.forEach(b=>{const x=document.createElement("button"); x.className="pill"; x.textContent=b.t; x.onclick=b.c; actions.appendChild(x);});
+    box.style.display="block"; box.scrollIntoView({behavior:"smooth",block:"center"});
+  };
 
   const vows=()=>{burst();show(`<div class="quote">Our Forever Vows 😌💗</div>
     <p class="p"><b>1)</b> I’ll respect you with actions, not just words.</p>
@@ -150,12 +185,14 @@ background:linear-gradient(135deg,rgba(255,173,200,.28),rgba(176,188,255,.18));b
 
   const spicy=()=>{burst();show(`<div class="quote">Husband Mode 😈🔥</div>
     <p class="p">It’s just us now… no stress, no noise 😌🔥</p>
-    <p class="p">Come close… I’m not letting you go tonight 🫣❤️</p>
+    <p class="p">Come close, <b>Bushy</b> 🫣❤️</p>
+    <p class="p">My <b>Kuttima</b>… my <b>Kunjumaa</b> 😌💗</p>
     <p class="p"><b>(okay… daddy is missing you a little 😈)</b></p>`,
-    [{t:"Come closer 😌🔥",c:()=>wa("Come closer 😌🔥")},
-     {t:"I want you 🫣❤️",c:()=>wa("I want you 🫣❤️")}]);};
+    [{t:"Coming Butta 🫣🔥",c:()=>wa("Coming Butta 🫣🔥")},
+     {t:"I want you Pattu 😌❤️",c:()=>wa("I want you Pattu 😌❤️")}]);};
 
-  const mood=()=>{burst();show(`<div class="quote">Pick your mood ✨</div><p class="p">Choose what you want right now, Bushy 😌💍</p>`,
+  const mood=()=>{burst();show(`<div class="quote">Pick your mood ✨</div>
+    <p class="p">Choose what you want right now, Bushy 😌💍</p>`,
     [{t:"😇 Soft romance",c:soft},{t:"😈 Husband mode",c:spicy}]);};
 
   const angry=()=>{burst();show(`<div class="quote">For my Angry Bird 😤🐦</div>
@@ -175,11 +212,15 @@ background:linear-gradient(135deg,rgba(255,173,200,.28),rgba(176,188,255,.18));b
   $("openBtn").onclick=()=>{overlay.style.display="none";burst(10);};
   $("bV").onclick=vows; $("bL").onclick=letter; $("bM").onclick=mood; $("bA").onclick=angry; $("bN").onclick=night;
 
-  const upd=()=>{const now=new Date(),y=now.getFullYear();let t=new Date(y,7,29);if(now>t)t=new Date(y+1,7,29);
-    const s=new Date(now.getFullYear(),now.getMonth(),now.getDate()),e=new Date(t.getFullYear(),t.getMonth(),t.getDate());
+  const upd=()=>{
+    const now=new Date(),y=now.getFullYear();
+    let t=new Date(y,7,29); if(now>t) t=new Date(y+1,7,29);
+    const s=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    const e=new Date(t.getFullYear(),t.getMonth(),t.getDate());
     const d=Math.round((e-s)/(1000*60*60*24));
-    countdown.textContent=d===0?"Happy Anniversary 🎉❤️":(d===1?"1 day to go 😌💍":`${d} days left 😌💍`);};
-  upd();setInterval(upd,60000);
+    countdown.textContent=d===0?"Happy Anniversary 🎉❤️":(d===1?"1 day to go 😌💍":`${d} days left 😌💍`);
+  };
+  upd(); setInterval(upd,60000);
 })();
 </script>
 </body>
